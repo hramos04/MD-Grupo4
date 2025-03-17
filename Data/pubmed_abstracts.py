@@ -10,8 +10,8 @@ def fetch_pubmed_abstracts(topics, max_results=10, output_file="pubmed_abstracts
     for topic in topics:
         print(f"Fetching abstracts for: {topic}...")
 
-        # extrai de acordo com maior relevancia e a partir de 2020
-        search_query = f"{topic} AND 2020/01/01:3000/12/31[DP]"
+        # extrai de acordo com maior relevancia e a partir de 2019
+        search_query = f"{topic} AND 2019/01/01:3000/12/31[DP]"
         search_url = f"{base_url}esearch.fcgi?db=pubmed&term={search_query}&retmax={max_results}&retmode=xml&sort=relevance"
         
         search_response = requests.get(search_url)
@@ -36,16 +36,37 @@ def fetch_pubmed_abstracts(topics, max_results=10, output_file="pubmed_abstracts
                 pmid = article.find(".//PMID").text if article.find(".//PMID") is not None else ""
                 title_elem = article.find(".//ArticleTitle")
                 title = title_elem.text.strip() if title_elem is not None and title_elem.text else "No title available"
-                abstract_elem = article.find(".//AbstractText")
-                abstract = abstract_elem.text.strip() if abstract_elem is not None and abstract_elem.text else "No abstract available"
+                abstract_parts = article.findall(".//AbstractText")
+                if abstract_parts:
+                    abstract = " ".join([part.text.strip() for part in abstract_parts if part.text])
+                else:
+                    abstract = ""
+                if not abstract:
+                    continue
                 date_elem = article.find(".//PubDate/Year")
                 date = date_elem.text if date_elem is not None else "No date available"
                 link = f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/" if pmid else "No link available"
 
+                authors = []
+                for author in article.findall(".//Author"):
+                    last_name = author.find("LastName")
+                    first_name = author.find("ForeName")
+                    full_name = " ".join(filter(None, [first_name.text if first_name is not None else "", last_name.text if last_name is not None else ""]))
+                    if full_name.strip():
+                        authors.append(full_name)
+
+                doi = "No DOI available"
+                for id_elem in article.findall(".//ArticleId"): 
+                    if id_elem.attrib.get("IdType") == "doi":
+                        doi = id_elem.text
+                        break
+
                 all_abstracts.append({
-                    "titulo": title,
+                    "title": title,
                     "link": link,
-                    "data": date,
+                    "year": date,
+                    "authors": authors,
+                    "doi": doi,
                     "abstract": abstract
                 })
 
@@ -58,10 +79,11 @@ def fetch_pubmed_abstracts(topics, max_results=10, output_file="pubmed_abstracts
     
     print(f"All abstracts saved to {output_file}")
 
+if __name__ == "__main__":
 
-with open("keywords.json", "r", encoding="utf-8") as f:
-    keywords = json.load(f)
+    with open("keywords.json", "r", encoding="utf-8") as f:
+        keywords = json.load(f)
 
-new_topics = sum(keywords.values(), [])
+    topics = sum(keywords.values(), [])
 
-fetch_pubmed_abstracts(new_topics, max_results=30, batch_size=5)
+    fetch_pubmed_abstracts(topics, max_results=50, batch_size=5)

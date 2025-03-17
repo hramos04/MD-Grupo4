@@ -1,52 +1,38 @@
 {
     "alcohol_drugs": [
-        "alcohol and drugs",
-        "alcohol and drugs impact on health",
-        "drugs impact on health",
-        "alcohol impact on health",
-        "alcohol and drugs health"
+        "impact of alcohol on health",
+        "impact of drugs on health",
+        "combined impact of alcohol and drugs on health"
     ],
     "hygiene": [
-        "hygiene",
-        "personal hygiene",
-        "public hygiene",
-        "hygiene diseases impact",
-        "hygiene benefits",
-        "alcohol and drugs in students"
+        "impact of personal hygiene on health",
+        "impact of public hygiene on health",
+        "impact of poor hygiene on health",
+        "benefits of proper hygiene on health"
     ],
     "work": [
-        "long working hours",
-        "negative impacts of shiftwork and long work hours",
-        "long working hours health",
-        "shiftwork impact",
-        "long working hours impact on health",
-        "shift work"
+        "impact of long working hours on health",
+        "impact of shift work on health",
+        "negative health impacts of shift work and long hours"
     ],
     "ergonomics": [
-        "ergonomics impact on health",
-        "ergonomics factors",
-        "workplace ergonomics",
-        "office ergonomics",
-        "ergonomics musculoskeletal",
-        "home ergonomics"
+        "impact of workplace ergonomics on health",
+        "impact of office ergonomics on health",
+        "impact of home ergonomics on health",
+        "impact of ergonomics on musculoskeletal health"
     ],
     "sleep": [
-        "sleep",
         "impact of sleep on health",
-        "sleep quality",
-        "sleep duration by age",
-        "sleep recommendations by age",
-        "sleep routine",
-        "sleep importance"
+        "impact of sleep quality on health",
+        "impact of sleep duration on health by age",
+        "impact of sleep routine on health",
+        "importance of sleep for health"
     ],
     "tobacco": [
-        "tobacco",
-        "tobacco smoking",
-        "nicotine",
-        "smoking",
-        "tobacco impact on health",
-        "smoking impact on health",
-        "smoke lungs",
-        "tobacco lungs"
+        "impact of tobacco on health",
+        "impact of tobacco smoking on health",
+        "impact of nicotine on health",
+        "impact of smoking on health",
+        "impact of smoking on lung health"
     ]
 }
