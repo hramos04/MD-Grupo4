@@ -1,0 +1,40 @@
+{
+    "alcohol_drugs": [
+        "https://www.who.int/health-topics/alcohol#tab=tab_1",
+        "https://www.who.int/news-room/fact-sheets/detail/alcohol",
+        "https://nida.nih.gov/publications/drugs-brains-behavior-science-addiction/addiction-health"
+
+    ],
+    "hygiene": [
+        "https://www.cdc.gov/global-water-sanitation-hygiene/about/index.html",
+        "https://www.cdc.gov/clean-hands/about/index.html",
+        "https://www.cdc.gov/hygiene/about/index.html",
+        "https://www.healthdirect.gov.au/personal-hygiene"
+    ],
+    "work": [
+        "https://osha.europa.eu/en/themes/psychosocial-risks-and-mental-health",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6617405/",
+        "https://www.sciencedirect.com/science/article/pii/S0277953619307695"
+    ],
+    "ergonomics": [
+        "https://www.cdc.gov/niosh/ergonomics/about/index.html",
+        "https://www.ncbi.nlm.nih.gov/books/NBK580551/"
+
+    ],
+    "sleep": [
+        "https://www.thensf.org/appropriate-screen-use-in-children/",
+        "https://www.thensf.org/not-sleeping-well-it-might-be-time-to-see-a-healthcare-provider/",
+        "https://www.thensf.org/what-are-the-sleep-stages/",
+        "https://www.thensf.org/setting-a-regular-sleep-schedule/",
+        "https://www.cdc.gov/sleep/about/index.html",
+        "https://www.mentalhealth.org.uk/explore-mental-health/publications/sleep-matters-impact-sleep-health-and-wellbeing"
+    ],
+    "tobacco": [
+        "https://www.health.gov.au/topics/smoking-vaping-and-tobacco/about-smoking/effects",
+        "https://www.who.int/health-topics/tobacco#tab=tab_1",
+        "https://www.who.int/health-topics/tobacco#tab=tab_2"
+    ]
+}
+
+ 
+

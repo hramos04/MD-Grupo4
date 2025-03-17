@@ -1,0 +1,52 @@
+{
+    "alcohol_drugs": [
+        "alcohol and drugs",
+        "alcohol and drugs impact on health",
+        "drugs impact on health",
+        "alcohol impact on health",
+        "alcohol and drugs health"
+    ],
+    "hygiene": [
+        "hygiene",
+        "personal hygiene",
+        "public hygiene",
+        "hygiene diseases impact",
+        "hygiene benefits",
+        "alcohol and drugs in students"
+    ],
+    "work": [
+        "long working hours",
+        "negative impacts of shiftwork and long work hours",
+        "long working hours health",
+        "shiftwork impact",
+        "long working hours impact on health",
+        "shift work"
+    ],
+    "ergonomics": [
+        "ergonomics impact on health",
+        "ergonomics factors",
+        "workplace ergonomics",
+        "office ergonomics",
+        "ergonomics musculoskeletal",
+        "home ergonomics"
+    ],
+    "sleep": [
+        "sleep",
+        "impact of sleep on health",
+        "sleep quality",
+        "sleep duration by age",
+        "sleep recommendations by age",
+        "sleep routine",
+        "sleep importance"
+    ],
+    "tobacco": [
+        "tobacco",
+        "tobacco smoking",
+        "nicotine",
+        "smoking",
+        "tobacco impact on health",
+        "smoking impact on health",
+        "smoke lungs",
+        "tobacco lungs"
+    ]
+}
