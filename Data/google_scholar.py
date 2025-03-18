@@ -27,11 +27,11 @@ def fetch_google_scholar_papers(query, max_results=10, min_year=2019):
         pdf_link = paper.get("pub_url", "No PDF link available")
         doi = paper.get("bib", {}).get("doi", "DOI unavailable")
 
-        if year and int(year) >= min_year:
+        if year and year.isdigit() and int(year) >= min_year:
             papers.append({
                 "title": title,
                 "authors": authors,
-                "year": year,
+                "year": int(year),
                 "abstract": abstract,
                 "pdf_link": pdf_link,
                 "doi": doi
@@ -46,16 +46,15 @@ def fetch_google_scholar_papers(query, max_results=10, min_year=2019):
 
 if __name__ == "__main__":
     try:
-        with open("keywords.json", "r", encoding="utf-8") as f:
+        with open("JSON/keywords.json", "r", encoding="utf-8") as f:
             keywords = json.load(f)
     except Exception as e:
         print(f"Error loading 'keywords.json': {e}")
         exit(1)
 
     topics = sum(keywords.values(), [])
-
     try:
-        with open("google_scholar_papers.json", "r", encoding="utf-8") as file:
+        with open("JSON/google_scholar_papers.json", "r", encoding="utf-8") as file:
             all_papers = json.load(file)
     except (FileNotFoundError, json.JSONDecodeError):
         all_papers = []
@@ -66,7 +65,7 @@ if __name__ == "__main__":
 
         if papers:
             all_papers.extend(papers)
-            with open("google_scholar_papers.json", "w", encoding="utf-8") as file:
+            with open("JSON/google_scholar_papers.json", "w", encoding="utf-8") as file:
                 json.dump(all_papers, file, ensure_ascii=False, indent=4)
 
         time.sleep(random.uniform(60, 120))  

@@ -3,7 +3,7 @@ from xml.etree import ElementTree
 import time
 import json
 
-def fetch_pubmed_abstracts(topics, max_results=10, output_file="pubmed_abstracts.json", batch_size=5):
+def fetch_pubmed_abstracts(topics, max_results=10, output_file="JSON/pubmed_abstracts.json", batch_size=5):
     base_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
     all_abstracts = []
     
@@ -81,7 +81,7 @@ def fetch_pubmed_abstracts(topics, max_results=10, output_file="pubmed_abstracts
 
 if __name__ == "__main__":
 
-    with open("keywords.json", "r", encoding="utf-8") as f:
+    with open("JSON/keywords.json", "r", encoding="utf-8") as f:
         keywords = json.load(f)
 
     topics = sum(keywords.values(), [])
