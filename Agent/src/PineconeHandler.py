@@ -115,6 +115,11 @@ class PineconeHandler:
             include_metadata=True
         )
 
+        responseBuilder = ""
+        for match in results["matches"]:
+            responseBuilder += f"Paper: {match['id']}\n"
+            responseBuilder += f"Text: {match['metadata']['text']}\n\n"
+
         # Print results
         print("Top Matches:\n")
         for match in results["matches"]:
@@ -122,7 +127,7 @@ class PineconeHandler:
             print(f"Text: {match['metadata']['text']}")
             print("-" * 50)
             
-        return results["matches"]
+        return responseBuilder
 
 
 if __name__ == "__main__":
