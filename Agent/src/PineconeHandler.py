@@ -3,17 +3,18 @@ import os
 from dotenv import load_dotenv
 
 class PineconeHandler:
-    def __init__(self, indexName="project", dimension=1024, namespace="ns1"):
+    def __init__(self):
         
         load_dotenv()
         self.apiKey = os.getenv("PINECONE_KEY")
         if not self.apiKey:
             raise ValueError("PINECONE_KEY environment variable not set.")
         
+        # Pinecone config
         self.pc = Pinecone(api_key=self.apiKey)
-        self.indexName = indexName
-        self.dimension = dimension
-        self.namespace = namespace
+        self.indexName = "project"
+        self.dimension = 1024
+        self.namespace = "ns1"
 
         # Ensure index exists or create it
         self.index, created = self.getIndex()
@@ -21,6 +22,7 @@ class PineconeHandler:
         # If the index was just created, populate it with data
         if created:
             self.addData()
+
 
     # Get or create the index
     def getIndex(self):
@@ -130,7 +132,8 @@ class PineconeHandler:
         return responseBuilder
 
 
+# Debugging only
 if __name__ == "__main__":
     pinecone_handler = PineconeHandler()
     # To query:
-    pinecone_handler.query("Quantas horas de sono devo dromir por dia?")
+    pinecone_handler.query("Quantas horas devo dormir por dia?")
