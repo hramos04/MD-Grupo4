@@ -20,7 +20,7 @@ def main():
             break
         
         # Retrieve relevant chunks using the embeddings
-        context = pineconeHandler.query(prompt, topK=3)
+        context = pineconeHandler.query(prompt)
         
         # Create the final prompt for the LLM
         finalPrompt = (

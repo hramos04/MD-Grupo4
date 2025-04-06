@@ -104,7 +104,7 @@ class PineconeHandler:
 
 
     # Query the index
-    def query(self, queryText, topK=3, threshold=0.5, maxHierarchyLevel=3):
+    def query(self, queryText, topK=3, threshold=0.4, maxHierarchyLevel=3):
         
         # Embed the query once
         query_embedding = self.pc.inference.embed(
@@ -112,63 +112,72 @@ class PineconeHandler:
             inputs=[queryText],
             parameters={"input_type": "query"}
         )[0]["values"]
-        
 
-        bestResults = []
-        bestScore = 0
+        finalResults = []
 
-        for level in range(1, maxHierarchyLevel + 1):
-            print(f" Searching hierarchy level {level}...")
+        for currentHierachyLevel in range(1, maxHierarchyLevel + 1):
+            print(f"Searching hierarchy level {currentHierachyLevel}...")
 
-            # Perform the query with filter for current hierarchy level
             results = self.index.query(
                 namespace=self.namespace,
                 vector=query_embedding,
                 top_k=topK,
                 include_values=False,
                 include_metadata=True,
-                filter={"hierarchy": level}
+                filter={"hierarchy": currentHierachyLevel}
             )
 
             matches = results.get("matches", [])
             if not matches:
-                print(f"No results found at level {level}, stopping.")
+                print(f"No results at level {currentHierachyLevel}, stopping.")
                 break
 
-            # Find the best score at this level
-            topMatch = max(matches, key=lambda x: x["score"])
-            topScore = topMatch["score"]
 
-            print(f"Best score at level {level}: {topScore:.4f}")
+            # Evaluate each match
+            matches.sort(key=lambda x: x["score"], reverse=True)
+            for match in matches:
+                
+                # If we already have topK results above threshold, ignore this
+                if len(finalResults) < topK:
+                    finalResults.append(match)
+                    
+                else:
+                    # If we already have topK results, check lowest score of current finalResults list
+                    lowest = min(finalResults, key=lambda x: x["score"])
 
-            if topScore >= threshold:
-                print("Good result found, stopping search.")
-                bestResults = matches
-                break  # stop searching lower levels
+                    # Only replace the lowest scoring match if the new match is better and out of threshold scope
+                    if match["score"] > lowest["score"] and lowest["score"] < threshold:
+                        finalResults.remove(lowest)
+                        finalResults.append(match)
+
+            # Stop if all finalResults are above threshold and we have enough
+            if len(finalResults) == topK and all(r["score"] >= threshold for r in finalResults):
+                print("All required results found. Stopping.")
+                break
             else:
-                # If not above threshold, store in case it's the best overall
-                if topScore > bestScore:
-                    bestResults = matches
-                    bestScore = topScore
+                print("Not good enough results yet, checking deeper hierarchy...")
+
+        # Sort results by score descending
+        finalResults.sort(key=lambda x: x["score"], reverse=True)
 
         # Build response
         responseBuilder = ""
-        for match in bestResults:
+        for match in finalResults:
             responseBuilder += f"Paper: {match['id']}\n"
             responseBuilder += f"Hierarchy: {match['metadata'].get('hierarchy')}\n"
             responseBuilder += f"Score: {match['score']:.4f}\n"
             responseBuilder += f"Text: {match['metadata'].get('text')}\n\n"
-            
-        # Print results
-        print("Top Matches:\n")
-        for match in bestResults:
+
+        # Print final results
+        print("\nFinal Top Matches:")
+        for match in finalResults:
             print(f"Score: {match['score']:.4f}")
             print(f"Hierarchy: {match['metadata']['hierarchy']}")
             print(f"Text: {match['metadata']['text']}")
             print("-" * 50)
 
         return responseBuilder
-
+        
 
 
 # Debugging only
