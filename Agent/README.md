@@ -31,3 +31,22 @@ The core idea is:
    - All are above threshold.
    - All are from current or higher levels.
 
+
+```mermaid
+flowchart TD
+    A[Start Query] --> B[Embed with LLaMA-2]
+    B --> C[Set Hierarchy Level = 1]
+    C --> D[Query Pinecone with hierarchy filter]
+    D --> E[Sort results by score]
+    E --> F{Enough results above threshold?}
+    
+    F -- Yes --> G[Stop search]
+    F -- No --> H[Add or Replace low-score results]
+
+    H --> I{Reached max hierarchy level?}
+    I -- No --> J[Increase Hierarchy Level]
+    J --> D
+
+    I -- Yes --> G
+    G --> K[Return Final Results]
+
