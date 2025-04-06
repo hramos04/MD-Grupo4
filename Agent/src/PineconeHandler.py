@@ -1,6 +1,7 @@
 from pinecone import Pinecone, ServerlessSpec
 import os
 from dotenv import load_dotenv
+import random
 
 class PineconeHandler:
     def __init__(self):
@@ -74,7 +75,8 @@ class PineconeHandler:
             # Add the entry to the data list
             data.append({
                 "id": entry_id,
-                "text": paper_content
+                "text": paper_content,
+                "hierarchy": random.randint(1, 2)
             })
 
         # Embed data
@@ -90,7 +92,10 @@ class PineconeHandler:
             vectors.append({
                 "id": d['id'],
                 "values": e['values'],
-                "metadata": {'text': d['text']}
+                "metadata": {
+                    'text': d['text'],
+                    'hierarchy': d['hierarchy']
+                }
             })
 
         # Upsert vectors
@@ -99,37 +104,71 @@ class PineconeHandler:
 
 
     # Query the index
-    def query(self, queryText, topK=3):
+    def query(self, queryText, topK=3, threshold=0.5, maxHierarchyLevel=3):
         
-        # Embed the query
+        # Embed the query once
         query_embedding = self.pc.inference.embed(
             model="llama-text-embed-v2",
             inputs=[queryText],
             parameters={"input_type": "query"}
         )[0]["values"]
+        
 
-        # Perform the query
-        results = self.index.query(
-            namespace=self.namespace,
-            vector=query_embedding,
-            top_k=topK,
-            include_values=False,
-            include_metadata=True
-        )
+        bestResults = []
+        bestScore = 0
 
+        for level in range(1, maxHierarchyLevel + 1):
+            print(f" Searching hierarchy level {level}...")
+
+            # Perform the query with filter for current hierarchy level
+            results = self.index.query(
+                namespace=self.namespace,
+                vector=query_embedding,
+                top_k=topK,
+                include_values=False,
+                include_metadata=True,
+                filter={"hierarchy": level}
+            )
+
+            matches = results.get("matches", [])
+            if not matches:
+                print(f"No results found at level {level}, stopping.")
+                break
+
+            # Find the best score at this level
+            topMatch = max(matches, key=lambda x: x["score"])
+            topScore = topMatch["score"]
+
+            print(f"Best score at level {level}: {topScore:.4f}")
+
+            if topScore >= threshold:
+                print("Good result found, stopping search.")
+                bestResults = matches
+                break  # stop searching lower levels
+            else:
+                # If not above threshold, store in case it's the best overall
+                if topScore > bestScore:
+                    bestResults = matches
+                    bestScore = topScore
+
+        # Build response
         responseBuilder = ""
-        for match in results["matches"]:
+        for match in bestResults:
             responseBuilder += f"Paper: {match['id']}\n"
-            responseBuilder += f"Text: {match['metadata']['text']}\n\n"
-
+            responseBuilder += f"Hierarchy: {match['metadata'].get('hierarchy')}\n"
+            responseBuilder += f"Score: {match['score']:.4f}\n"
+            responseBuilder += f"Text: {match['metadata'].get('text')}\n\n"
+            
         # Print results
         print("Top Matches:\n")
-        for match in results["matches"]:
+        for match in bestResults:
             print(f"Score: {match['score']:.4f}")
+            print(f"Hierarchy: {match['metadata']['hierarchy']}")
             print(f"Text: {match['metadata']['text']}")
             print("-" * 50)
-            
+
         return responseBuilder
+
 
 
 # Debugging only
