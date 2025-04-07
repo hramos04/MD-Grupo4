@@ -1,40 +1,124 @@
-{
-    "alcohol_drugs": [
-        "https://www.who.int/health-topics/alcohol#tab=tab_1",
-        "https://www.who.int/news-room/fact-sheets/detail/alcohol",
-        "https://nida.nih.gov/publications/drugs-brains-behavior-science-addiction/addiction-health"
+[
+    {
+        "topic": "alcohol_drugs",
+        "title": "Alcohol",
+        "link": "https://www.who.int/health-topics/alcohol#tab=tab_1",
+        "year": "2025",
+        "abstract": "Alcohol is a toxic and psychoactive substance with dependence producing properties. In many of today’s societies, alcoholic beverages are a routine part of the social landscape for many in the population. This is particularly true for those in social environments with high visibility and societal influence, nationally and internationally, where alcohol frequently accompanies socializing. In this context, it is easy to overlook or discount the health and social damage caused or contributed to by drinking. Alcohol consumption contributes to 2.6 million deaths each year globally as well as to the disabilities and poor health of millions of people. Overall, harmful use of alcohol is responsible for 4.7% of the global burden of disease. Harmful use of alcohol is accountable for 6,9 % and 2.0% of the global burden of disease for males and females respectively. Alcohol is the leading risk factor for premature mortality and disability among those aged 20 to 39 years, accounting for 13% of all deaths in this age group. Disadvantaged and especially vulnerable populations have higher rates of alcohol-related death and hospitalization. Alcohol as an intoxicant affects a wide range of structures and processes in the central nervous system and increases the risk for intentional and unintentional injuries and adverse social consequences. Alcohol has considerable toxic effects on the digestive and cardiovascular systems. Alcoholic beverages are classified as carcinogenic by the International Agency for Research on Cancer and increase the risk of several cancer types. Alcohol as an immunosuppressant increases the risk of communicable diseases, including tuberculosis and HIV. Both the volume of lifetime alcohol use and a combination of context, frequency of alcohol consumption and amount consumed per occasion increase the risk of the wide range of health and social harms. The risks increase largely in a dose-dependent manner with the volume of alcohol consumed and with frequency of drinking, and exponentially with the amount consumed on a single occasion. Surrogate and illegally produced alcohols can bring an extra health risk from toxic contaminants."
+    },
+    {
+        "topic": "alcohol_drugs",
+        "title": "Health risks of alcohol use",
+        "link": "https://www.who.int/news-room/fact-sheets/detail/alcohol",
+        "year": "2025",
+        "abstract": "Alcohol consumption is found to play a causal role in more than 200 diseases, injuries and other health conditions. However, the global burden of disease and injuries caused by alcohol consumption can be quantified for only 31 health conditions on the basis of the available scientific evidence for the role of alcohol use in their development, occurrence and outcomes. Drinking alcohol is associated with risks of developing noncommunicable diseases such as liver diseases, heart diseases, and different types of cancers, as well as mental health and behavioural conditions such as depression, anxiety and alcohol use disorders. Alcohol is an established carcinogen and alcohol consumption increases the risk of several cancers, including breast, liver, head and neck, oesophageal and colorectal cancers. In 2019, 4.4% of cancers diagnosed globally and 401 000 cancer deaths were attributed to alcohol consumption. Alcohol consumption also causes significant harm to others, not just to the person consuming alcohol. A significant part of alcohol-attributable disease burden arises from injuries such as road traffic accidents. In 2019, of a total of 298 000 deaths from alcohol-related road crashes, 156 000 deaths were caused by someone else’s drinking. Other injuries, intentional or unintentional, include falls, drowning, burns, sexual assault, intimate partner violence and suicide. Alcohol consumption during pregnancy increases the risk of having a child with fetal alcohol spectrum disorders (FASDs), the most severe form of which is fetal alcohol syndrome (FAS), which is associated with developmental disabilities and birth defects. Alcohol consumption during pregnancy can also increase the risk of pre-term birth complications including miscarriage, stillbirth and premature delivery. Younger people are disproportionately negatively affected by alcohol consumption, with the highest proportion (13%) of alcohol-attributable deaths in 2019 occurring among people aged between 20 and 39 years. n the long term, harmful and hazardous levels of alcohol consumption can lead to social problems including family problems, issues at work, financial problems, and unemployment."
+    },
+    {
+        "topic": "alcohol_drugs",
+        "title": "Drug Addiction",
+        "link": "https://www.health.gov.au/topics/drugs/about-drugs/what-are-the-effects-of-taking-drugs",
+        "year": "2025",
+        "abstract": "Studies show that drug use increases your risk of mental health issues such as anxiety, depression and psychosis. People with mental health issues also have a higher rate of drug use problems. Some drugs can be very expensive – the street price of illicit drugs depends on availability and demand. If you have become dependent on a drug, you could end up in financial trouble. Because drugs can change your behaviour, they can affect your relationships with family and friends. There is an increased risk of injury and/or assault to both yourself and other people. Many drugs are illegal and you can be fined, or sent to prison, for having them. If convicted of a drug offence, you could end up with a criminal record – this can make it harder to get a job, apply for a loan, or travel overseas. Alcohol and other drugs can seriously affect your driving skills. You are more likely to have an accident, injuring yourself and/or others. The crash could be fatal. Taking too much of a drug, including prescription drugs, can result in an overdose. Each person will react differently, but death can occur in some cases. Even if the person recovers there can be permanent damage to their body."
+    },
+    {
+        "topic": "hygiene",
+        "title": "Hygiene Basics",
+        "link": "https://www.cdc.gov/hygiene/about/index.html",
+        "year": "2025",
+        "abstract": "Hygiene can refer to a number of different practices that can help to keep you and others healthy. There are many ways you can keep yourself and your environment clean to promote healthy living. A few important practices include personal hygiene, proper infant diapering and feeding, and everyday cleaning. Personal hygiene refers to regularly washing parts of the body and hair with soap and water (including washing your hands and feet), grooming nails, facial cleanliness, covering coughs and sneezes, and menstrual hygiene. Personal hygiene practices can help you to feel fresh and healthy.Hygiene refers to behaviors that can improve cleanliness and lead to good health.A few examples of hygiene can include how you care for your body, how you care for your baby, or how you care for your home environment to stay fresh and clean.Many diseases and conditions can be prevented through proper hygiene practices, such as covering your coughs and sneezes, washing hands after handling animals, and showering before you swim."
+    },
+    {
+        "topic": "hygiene",
+        "title": "Personal Hygiene",
+        "link": "https://www.healthdirect.gov.au/personal-hygiene",
+        "year": "2025",
+        "abstract": "Good personal hygiene is about keeping your body clean. It also helps to protect you from getting infections such as gastroenteritis, colds and flu and COVID-19. Washing your hands with soap removes germs that can make you ill. Having good personal hygiene will also help prevent you from spreading diseases to other people. Good personal hygiene is vital because it helps stop you from getting sick. It also helps stop you from spreading germs and infectious diseases. Washing your hands often is a good way to stop the germs on your hands from making you sick. To avoid getting sick, wash your hands properly. Most people know more about hair care than caring for their genitals.Using soap when you wash helps to control the naturally occurring bacteria. After washing, make sure that you dry yourself well. Apply deodorant to your armpits. Deodorants help make your armpits less friendly to bacteria and hide odours. Antiperspirants help block your sweat glands to reduce sweating."
+    },
+    {
+        "topic": "hygiene",
+        "title": "About Handwashing",
+        "link": "https://www.cdc.gov/clean-hands/about/index.html",
+        "year": "2025",
+        "abstract": "Many diseases and conditions are spread by not washing hands with soap and clean, running water. Handwashing with soap is one of the best ways to stay healthy.If soap and water are not readily available, use a hand sanitizer with at least 60% alcohol to clean your hands. Washing hands can keep you healthy and prevent the spread of respiratory and diarrheal infections. Washing your hands is easy, and it’s one of the most effective ways to prevent the spread of germs. Washing hands with soap and water is the best way to get rid of germs in most situations. If soap and water are not readily available, you can use an alcohol-based hand sanitizer that contains at least 60% alcohol. You can tell if the sanitizer contains at least 60% alcohol by looking at the product label."
 
-    ],
-    "hygiene": [
-        "https://www.cdc.gov/global-water-sanitation-hygiene/about/index.html",
-        "https://www.cdc.gov/clean-hands/about/index.html",
-        "https://www.cdc.gov/hygiene/about/index.html",
-        "https://www.healthdirect.gov.au/personal-hygiene"
-    ],
-    "work": [
-        "https://osha.europa.eu/en/themes/psychosocial-risks-and-mental-health",
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6617405/",
-        "https://www.sciencedirect.com/science/article/pii/S0277953619307695"
-    ],
-    "ergonomics": [
-        "https://www.cdc.gov/niosh/ergonomics/about/index.html",
-        "https://www.ncbi.nlm.nih.gov/books/NBK580551/"
+    },
+    {
+        "topic": "work",
+        "title": "Psychosocial risks and mental health at work",
+        "link": "https://osha.europa.eu/en/themes/psychosocial-risks-and-mental-health",
+        "year": "2025",
+        "abstract": "Stress, anxiety and depression make up the second most common work-related health problem affecting European workers. Raising mental health aspects and mentioning challenges in the workplace is still attached to the fear of stigma. Nevertheless, the proportion of workers who report facing risk factors that can adversely affect their mental health is nearly 45%. However, when viewed as an organisational issue rather than an individual fault, psychosocial risks can be tackled in the same structured and organised way as other OSH risks. When considering the job demands, it is important not to confuse psychosocial risk factors such as excessive workload with conditions where, although work tasks are stimulating and sometimes challenging, there is a supportive work environment in which workers have enough autonomy and they are well trained and motivated to perform to the best of their ability. A good psychosocial environment enhances good performance and personal development as well as workers’ mental and physical wellbeing. Workers experience stress when the overall demands of their job are excessive and greater than their capacity to cope with them. In addition to associated mental health problems such as burnout, anxiety, depression and even suicidal intentions, workers suffering from prolonged stress can go on to develop serious physical health problems such as cardiovascular disease or musculoskeletal disorders."
+    },
+    {
+        "topic": "work",
+        "title": "The Effect of Long Working Hours and Overtime on Occupational Health: A Meta-Analysis of Evidence from 1998 to 2018",
+        "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6617405/",
+        "year": "2025",
+        "abstract": "There has been no subsequent meta-analysis examining the effects of long working hours on health or occupational health since 1997. Therefore, this paper aims to conduct a meta-analysis covering studies after 1997 for a comparison. A total of 243 published records were extracted from electronic databases. The effects were measured by five conditions, namely, physiological health (PH), mental health (MH), health behaviours (HB), related health (RH), and nonspecified health (NH). The overall odds ratio between long working hours and occupational health was 1.245 (95% confidence interval (CI): 1.195–1.298). The condition of related health constituted the highest odds ratio value (1.465, 95% CI: 1.332–1.611). The potential moderators were study method, cut-point for long weekly working hours, and country of origin. Long working hours were shown to adversely affect the occupational health of workers. The management on safeguarding the occupational health of workers working long hours should be reinforced."
+    },
+    {
+        "topic": "work",
+        "title": "Mental health effects of long work hours, night and weekend work, and short rest periods",
+        "link": "https://www.sciencedirect.com/science/article/pii/S0277953619307695",
+        "year": "2025",
+        "abstract": "Long working hours cause the mental health of white-collar workers to deteriorate.Weekends rest is more important for white-collar workers' mental health.The strain of night work is more crucial for blue-collar workers' mental health.Short Rest Periods seem not to be related to mental health regardless of job type.Although the prior literature has examined the relationship between work schedule characteristics and worker mental health, establishing the causal effect of work schedule characteristics is challenging because of endogeneity issues. This paper investigates how various work schedule characteristics affect workers' mental health using employee surveys and actual working hours recorded over seventeen months in a Japanese manufacturing company. Our sample includes 1334 white-collar workers and 786 blue-collar workers observed from 2015 to 2016. Our major findings are as follows: long working hours cause the mental health of white-collar workers to deteriorate even after controlling for individual fixed effects. Furthermore, working on weekends is associated with mental ill health—the negative effect of an hour increase in weekend work is one and a half to two times larger than that of weekday overtime work for white-collar workers. On the other hand, short rest periods are not associated with mental health for them. Our results indicate that taking a relatively long rest period on weekends is more important for keeping white-collar workers healthy than ensuring a sufficient daily rest period. Regarding blue-collar workers, our analysis reveals that working after midnight is associated with mental ill health, whereas short rest periods are not associated with their mental health. This suggests that the strain of night work is a more important determinant of mental health for blue-collar workers. The differences in the relationship between work schedule characteristics and workers’ mental health for white-collar and blue-collar workers can be explained in terms of different work styles, different expectations, and different degrees of selection. We conclude that working for long hours or irregular hours deteriorates the mental health of workers but its impact is likely to differ significantly across job types."
+    },
+    {
+        "topic": "ergonomics",
+        "title": "About Ergonomics and Work-Related Musculoskeletal Disorders",
+        "link": "https://www.cdc.gov/niosh/ergonomics/about/index.html",
+        "year": "2025",
+        "abstract": "Ergonomics is the design of work tasks to best suit the capabilities of workers.Ergonomics can help reduce or eliminate work-related musculoskeletal disorders (WMSDs) and other injuries and improve safety.Ergonomics programs provide guidelines for reducing workplace risk factors, which can lead to reduced workplace injuries.In occupational health, ergonomics is the design of work tasks and job demands to fit the capabilities of the working population. The goal of ergonomics is to reduce and prevent musculoskeletal disorders caused by multiple factors.Using an understanding of ergonomics, employers, workers, and other parties can work together to design effective programs to prevent and minimize work-related discomfort and injuries. Musculoskeletal disorders. Work-related musculoskeletal disorders .  "
+    },
+    {
+        "topic": "ergonomics",
+        "title": "Ergonomics",
+        "link": "https://www.ncbi.nlm.nih.gov/books/NBK580551/",
+        "year": "2025",
+        "abstract": "Ergonomics is the study of matching job requirements and environment to the worker to maximize efficiency, quality, and quantity of work while minimizing work-related musculoskeletal disorders (WMSD), fatigue, and overexertion. An assessment is crucial for each job and should consider physical and psychosocial factors that impact the ergonomic outcomes. The assessment is usually initiated by a primary care clinician in response to the common complaints described above. If managed appropriately, work satisfaction increases, and most patients return to work as normal. Of course, adjustments are possible depending on a patient's changing employment, which may be informed by previous outcomes. This activity outlines the components of ergonomics and highlights the interprofessional team's role in maintaining proper ergonomics for their patients. Participating clinicians also review occupation-specific recommendations to enhance ergonomics, specifically in healthcare."
+    },
+    {
+        "topic": "sleep",
+        "title": "When to Put Devices to Bed",
+        "link": "https://www.thensf.org/appropriate-screen-use-in-children/",
+        "year": "2025",
+        "abstract": "Sleep is an essential process our brain and body use to recharge and recover, this is especially true for children and teens, who are undergoing rapid growth and daily development. Children and teens need anywhere between 8 and 13 hours of sleep a night depending on their age. But, screen use, especially exciting and engaging content before bed, can negatively impact the quality and quantity of children’s sleep.NSF convened an expert group of researchers to develop consensus guidelines for screen use and sleep. We found that screen use across the day can impair sleep health for both children and teens, but that viewing content before bed was particularly bad for sleep. The good news is, that there are things your family can do to help lessen some negative effects of screen use on sleep."
+    },
+    {
+        "topic": "sleep",
+        "title": "What Are the Sleep Stages?",
+        "link": "https://www.thensf.org/what-are-the-sleep-stages/",
+        "year": "2025",
+        "abstract": "While scientists in the 1950s thought that your brain went into “shutdown” mode while you slept, we now know that your sleeping body cycles through regular sleep patterns of activity, known as the sleep cycle. Over the course of one night, your body goes through the sleep stages every 90 minutes or so. Sleep stages last for different periods of time depending on the age of the sleeper. Stage 1 of the sleep cycle is the lightest phase of sleep and generally lasts about seven minutes. The sleeper is somewhat alert and can be woken up easily. During this stage, the heartbeat and breathing slow down while muscles begin to relax. The brain produces alpha and theta waves.In Stage 2, the brain creates brief bursts of electrical activity known as “sleep spindles” that create a distinct sawtooth pattern on recordings of brain activity. Eventually, the waves continue to slow down. Stage 2 is still considered a light phase of sleep, but the sleeper is less likely to be awakened. Heart rate and breathing slow down even more, and the body temperature drops. This stage lasts around 25 minutes.This stage represents the body falling into a deep sleep, where slow wave sleep occurs. The brain produces slower delta waves, and there’s no eye movement or muscle activity from the sleeper. As the brain produces even more delta waves, the sleeper enters an important restorative sleep stage from which it’s difficult to be awakened. This phase of deep sleep is what helps you feel refreshed in the morning. It’s also the phase in which your body repairs muscle and tissue, encourages growth and development, and improves immune function.About 90 minutes after falling asleep, your body enters REM sleep, which stands for Rapid Eye Movement sleep and is named so for the way your eyes quickly move back and forth behind your eyelids. REM sleep is thought to play a role in central nervous system development in infants, which might explain why infants need more REM sleep than adults. This sleep pattern is characterized by dreaming, since your brain is very active during this stage. Physically, your body experiences faster and irregular breathing, increased heart rate, and increased blood pressure; however, your arm and leg muscles become temporarily paralyzed, stopping you from acting out your dreams. REM sleep increases with each new sleep cycle, starting at about ten minutes during the first cycle and lasting up to an hour in the final cycle. Stage 4 is the last stage before the cycle repeats. This sleep stage is critical for learning, memory, daytime concentration, and your mood. "
+    },
+    {
+        "topic": "sleep",
+        "title": "Setting a Regular Sleep Schedule",
+        "link": "https://www.thensf.org/setting-a-regular-sleep-schedule/",
+        "year": "2025",
+        "abstract": "Having a regular sleep schedule can positively affect key areas in your life including your mental and physical health as well as performance. Getting enough sleep from a regular sleep schedule can make it easier for you to cope with daily stress and less likely to be impacted by minor negative things that can come up. Other positive benefits of a regular sleep schedule include alertness, health and safety behaviors, and improved heart health.Sleep tends to be the first thing that gets sacrificed when life gets busy with work, school, or family commitments. When you value your sleep, maintaining a consistent sleep schedule can come more easily. The first step is to understand the benefits of getting enough quality sleep. By prioritizing sleep in your life, you’re setting yourself up to get enough sleep to help feel great and be at your best.When it gets closer to your normal bedtime, use a reminder that alerts you it’s time to start your personal routine to get ready for sleep. In the morning, a wake-up alarm can help you get your day started without the worry of oversleeping.Looking for something to help you fall asleep easier? A wind-down routine is a simple plan to let your mind and body prepare for sleep every night. Each person’s approach is different but could include relaxing activities like reading a book, meditating, journaling, or listening to calming music before bed. Staying consistent night after night leads to the best results."
+    },
+    {
+        "topic": "sleep",
+        "title": "About Sleep",
+        "link": "https://www.cdc.gov/sleep/about/index.html",
+        "year": "2025",
+        "abstract": "Good sleep is essential for our health and emotional well-being.Getting enough sleep and good sleep quality are essential for healthy sleep.The amount of sleep you need changes as you age.Talk to your healthcare provider if you have problems sleeping.Quality sleep means you are getting uninterrupted and refreshing sleep. Getting quality sleep is not just about how many hours you sleep, but how well you sleep.Some people may have health conditions that prevent them from getting enough quality sleep, no matter how hard they try.The recommended amount of sleep varies depending on age group. Newborns (0 to 3 months) should sleep between 14 to 17 hours. Infants (4 to 12 months) need 12 to 16 hours, including naps. Toddlers (1 to 2 years) should sleep 11 to 14 hours, including naps, while preschoolers (3 to 5 years) require 10 to 13 hours, also including naps.School-age children (6 to 12 years) should get 9 to 12 hours of sleep. Teenagers (13 to 17 years) need 8 to 10 hours. Adults (18 to 60 years) require at least 7 hours of sleep. Adults aged 61 to 64 years should aim for 7 to 9 hours, and adults aged 65 and older need 7 to 8 hours."
+    },
+    {
+        "topic": "tobacco",
+        "title": "Effects of smoking and tobacco",
+        "link": "https://www.health.gov.au/topics/smoking-vaping-and-tobacco/about-smoking/effects",
+        "year": "2025",
+        "abstract": "Within 10 seconds of your first puff, the toxic chemicals in tobacco smoke reach your brain, heart and other organs. Smoking harms almost every part of your body and increases your risk of many diseases. Smoking also affects how you look and feel, your finances and the people close to you.The nicotine in tobacco is highly addictive. It makes your brain release a chemical called dopamine.As the nicotine levels in your body fade, your brain craves more dopamine. The longer you have been smoking, the more dopamine you need to feel good. You become dependent on nicotine to create this feeling.reduce your life expectancy and your quality of life.increase your risk of many conditions and diseases as well as of dying prematurely.There is also growing evidence to suggest that smoking has a negative impact on mental health. For example, some studies show that smoking is associated with increased rates of anxiety, panic attacks, depression, suicide attempts and schizophrenia.Smoking causes most lung cancers and can cause cancer almost anywhere on the body. This includes the mouth and nose, throat and voice box, oesophagus, blood cells, liver, stomach, kidney, pancreas, mucinous ovary, ureter, cervix, colon and bladder.Smoking is the main cause of chronic obstructive pulmonary disease (COPD), a serious, progressive and disabling condition that limits airflow in the lungs. Active smoking also worsens asthma in active smokers and is associated with an increased risk for asthma in adolescents and adults.Smoking is major cause of cardiovascular disease, such as heart disease and stroke, and cardiovascular disease is one of the major causes of death for both men and women. Smoking increases the risk of blood clots, which block blood flow to the heart, brain or legs. Some smokers end up having their limbs amputated due to blood circulation problems caused by smoking.Smoking increases the risk of gum diseases, tooth loss and tooth sensitivity. Once a person has gum damage, smoking also makes it harder for their gums to heal."
+    },
+    {
+        "topic": "tobacco",
+        "title": "Tobacco",
+        "link": "https://www.who.int/health-topics/tobacco#tab=tab_1",
+        "year": "2025",
+        "abstract": "Nicotine contained in tobacco is highly addictive and tobacco use is a major risk factor for cardiovascular and respiratory diseases, over 20 different types or subtypes of cancer, and many other debilitating health conditions. Every year, more than 8 million people die from tobacco use. Most tobacco-related deaths occur in low- and middle-income countries, which are often targets of intensive tobacco industry interference and marketing. Tobacco can also be deadly for non-smokers. Second-hand smoke exposure has also been implicated in adverse health outcomes, causing 1.2 million deaths annually. Nearly half of all children breathe air polluted by tobacco smoke and 65 000 children die each year due to illnesses related to second-hand smoke. Smoking while pregnant can lead to several life-long health conditions for babies. Heated tobacco products (HTPs) contain tobacco and expose users to toxic emissions, many of which cause cancer and are harmful to health. Electronic nicotine delivery systems (ENDS) and electronic non-nicotine delivery systems (ENNDS), commonly known as e-cigarettes, do not contain tobacco and may or may not contain nicotine, but are harmful to health and undoubtedly unsafe. However, it is too early to provide a clear answer on the long-term impact of HTPs and/or e-cigarette use. An estimated 1.3 billion people worldwide use tobacco products, 80% of whom are in low- and middle-income countries. Tobacco use contributes to poverty by diverting household spending from basic needs, such as food and shelter, to tobacco. This spending behaviour is difficult to curb because tobacco is so addictive. It also causes premature death and disability of productive age adults in households thus leading to reduced household income and increased healthcare costs.In addition to the detrimental impact of tobacco on health, the total economic cost of smoking (from health expenditures and productivity losses together) are estimated to be around US$ 1.4 trillion per year, equivalent in magnitude to 1.8% of the world's annual gross domestic product (GDP). Almost 40% of this cost occurred in developing countries, highlighting the substantial burden these countries suffer.obacco taxes are applied in part to combat this effect and are seen as the most cost-effective way of curbing tobacco use, particularly among youth and low-income populations. A tax increase that increases tobacco prices by 10% decreases tobacco consumption by about 4% in high-income countries and about 5% in low- and middle-income countries."
+    }   
 
-    ],
-    "sleep": [
-        "https://www.thensf.org/appropriate-screen-use-in-children/",
-        "https://www.thensf.org/not-sleeping-well-it-might-be-time-to-see-a-healthcare-provider/",
-        "https://www.thensf.org/what-are-the-sleep-stages/",
-        "https://www.thensf.org/setting-a-regular-sleep-schedule/",
-        "https://www.cdc.gov/sleep/about/index.html",
-        "https://www.mentalhealth.org.uk/explore-mental-health/publications/sleep-matters-impact-sleep-health-and-wellbeing"
-    ],
-    "tobacco": [
-        "https://www.health.gov.au/topics/smoking-vaping-and-tobacco/about-smoking/effects",
-        "https://www.who.int/health-topics/tobacco#tab=tab_1",
-        "https://www.who.int/health-topics/tobacco#tab=tab_2"
-    ]
-}
-
- 
-
+    
+]
