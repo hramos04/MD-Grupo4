@@ -8,7 +8,7 @@ class LLMClient:
     # Initialize the LLM client by loading the API key
     def __init__(self):
         load_dotenv()
-        self.client = Together(api_key=os.getenv("TOGETHER_AI_KEY"))
+        self.client = Together(api_key=os.getenv("TOGETHERAI_AI_KEY"))
         self.model = "deepseek-ai/DeepSeek-R1-Distill-Llama-70B-free"
 
     # Send a prompt to the LLM and return the response

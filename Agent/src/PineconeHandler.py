@@ -7,9 +7,9 @@ class PineconeHandler:
     def __init__(self):
         
         load_dotenv()
-        self.apiKey = os.getenv("PINECONE_KEY")
+        self.apiKey = os.getenv("PINECONE_API_KEY")
         if not self.apiKey:
-            raise ValueError("PINECONE_KEY environment variable not set.")
+            raise ValueError("PINECONE_API_KEY environment variable not set.")
         
         # Pinecone config
         self.pc = Pinecone(api_key=self.apiKey)

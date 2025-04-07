@@ -4,7 +4,7 @@ from PineconeHandler import PineconeHandler
 def main():
     
     # Read the context prompt from file
-    with open("config/contextPrompt.txt", "r", encoding="utf-8") as f:
+    with open("config/contextPrompt.txt", "r", encoding="utf-8") as f:  
         contextPrompt= f.read()
     
     # Load pinecone API key and environment
@@ -31,12 +31,12 @@ def main():
             f"{context}"
         )
 
-        # Debugging output
-        print("\nContexto RAG:")
-        print(finalPrompt)
-        print("########")
-        print("########")
-        print("########\n")
+        # # Debugging output
+        # print("\nContexto RAG:")
+        # print(finalPrompt)
+        # print("########")
+        # print("########")
+        # print("########\n")
         
         
         # Get the LLM response
