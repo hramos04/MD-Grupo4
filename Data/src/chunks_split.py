@@ -58,25 +58,30 @@ def split_into_chunks(text, max_length=150, max_tokens=512):
 def process_json(input_data):
     output = []
     for item in input_data:
-        chunks = split_into_chunks(item["abstract"])
+        try:
+            chunks = split_into_chunks(item["abstract"])
+        except Exception as e:
+            print(f"Ignorar entrada com erro: {e}")  # Opcional: para log
+            continue  # Ignora a entrada problemática e passa para a próxima
         for idx, chunk in enumerate(chunks):
             output.append({
-                "chunk_id": f"{item['title'][:30]}_{idx}",  # título recortado para evitar strings gigantes
+                "chunk_id": f"{item['title'][:30]}_{idx}",
                 "chunk_text": chunk,
                 "title": item["title"],
                 "link": item["link"],
                 "year": item["year"],
                 "topic": item["topic"],
-                "hierarchical level": 1
+                "hierarchical_level": 2
             })
     return output
 
+
 # Exemplo de uso
 if __name__ == "__main__":
-    with open("../JSON/FirstLevel.json", "r") as infile:
+    with open("../JSON/pubmed_abstracts.json", "r") as infile:
         data = json.load(infile)
 
     processed = process_json(data)
 
-    with open("output_chunks.json", "w") as outfile:
+    with open("../ChunkedData/Try.json", "w") as outfile:
         json.dump(processed, outfile, indent=4)
