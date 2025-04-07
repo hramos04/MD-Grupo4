@@ -11,11 +11,12 @@ def main():
     pineconeHandler = PineconeHandler()
     
     # Initialize the LLM client
-    llmClient = LLMClient()
+    llmClient = LLMClient(reasoningModel=True)
 
     while True:
         # Prompt the user for a question
-        prompt = input("\n\nDigite a sua pergunta (ou 'EXIT' para sair): \n>>>")
+        prompt = input("\n\nAsk anything (or 'EXIT' to leave): \n>>>")
+
         if prompt.strip().upper() == "EXIT":
             break
         
@@ -25,9 +26,9 @@ def main():
         # Create the final prompt for the LLM
         finalPrompt = (
             f"{contextPrompt}\n\n"
-            "### Pergunta:\n"
+            "### Question:\n"
             f"{prompt}\n\n"
-            "### Contexto de artigos:\n"
+            "### Articles context:\n"
             f"{context}"
         )
 
