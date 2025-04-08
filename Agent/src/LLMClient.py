@@ -4,7 +4,6 @@ from together import Together
 import os
 from dotenv import load_dotenv
 import re
-
 import together
 
 class LLMClient:
@@ -45,7 +44,6 @@ class LLMClient:
             raise Exception("An unexpected error occurred.")
         
             
-    
     # Remove the <think>...</think> section from the response (present in reasoning models)
     def cleanResponse(self, response):
         return re.sub(r"<think>.*?</think>", "", response, flags=re.DOTALL).strip()

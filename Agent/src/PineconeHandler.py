@@ -186,10 +186,3 @@ class PineconeHandler:
         return responseBuilder
         
 
-
-# Debugging only
-if __name__ == "__main__":
-    pinecone_handler = PineconeHandler()
-    pinecone_handler.insertDataInBatches()
-    # To query:
-    # pinecone_handler.query("Quantas horas devo dormir por dia?")
