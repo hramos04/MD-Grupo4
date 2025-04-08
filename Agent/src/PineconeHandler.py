@@ -1,4 +1,6 @@
-from pinecone import Pinecone, ServerlessSpec
+import json
+from textwrap import wrap
+from pinecone import Pinecone, ServerlessSpec, PineconeApiException
 import os
 from dotenv import load_dotenv
 import random
@@ -18,11 +20,11 @@ class PineconeHandler:
         self.namespace = "ns1"
 
         # Ensure index exists or create it
-        self.index, created = self.getIndex()
+        self.index, hasJustBeenCreated = self.getIndex()
 
         # If the index was just created, populate it with data
-        if created:
-            self.addData()
+        if hasJustBeenCreated:
+            self.insertDataInBatches()
 
 
     # Get or create the index
@@ -44,67 +46,74 @@ class PineconeHandler:
 
         return self.pc.Index(self.indexName), created
 
-
-    # Add data to the index
-    def addData(self):
+       
+    def dataEmbedding(self, data):
         print("Adding data to the index...")
-        
-        # Define your data
-        # data = [
-        #     {"id": "vec1", "text": "Apple is a popular fruit known for its sweetness and crisp texture."},
-        #     {"id": "vec2", "text": "The tech company Apple is known for its innovative products like the iPhone."},
-        #     {"id": "vec3", "text": "Many people enjoy eating apples as a healthy snack."},
-        #     {"id": "vec4", "text": "Apple Inc. has revolutionized the tech industry with its sleek designs and user-friendly interfaces."},
-        #     {"id": "vec5", "text": "An apple a day keeps the doctor away, as the saying goes."},
-        # ]
-        
-        
-        paper_files = [f for f in os.listdir("papers/") if f.endswith('.txt')]
-        # Prepare data from all the text files
-        data = []
-        for paper_file in paper_files:
-            file_path = os.path.join("papers/", paper_file)
-            
-            # Read the content of each text file
-            with open(file_path, 'r', encoding='utf-8') as file:
-                paper_content = file.read()
+        data = [d for d in data]
 
-            # Use the file name (without extension) as the ID
-            entry_id = os.path.splitext(paper_file)[0]
-
-            # Add the entry to the data list
-            data.append({
-                "id": entry_id,
-                "text": paper_content,
-                "hierarchy": random.randint(1, 2)
-            })
-
-        # Embed data
+        # Create embeddings for filtered data
+        textsToEmbed = [d['chunk_text'] for d in data]
         embeddings = self.pc.inference.embed(
             model="llama-text-embed-v2",
-            inputs=[d['text'] for d in data],
+            inputs=textsToEmbed,
             parameters={"input_type": "passage"}
         )
 
-        # Format vectors
+        # Build Pinecone vector format
         vectors = []
         for d, e in zip(data, embeddings):
             vectors.append({
-                "id": d['id'],
+                "id": d['chunk_id'],
                 "values": e['values'],
                 "metadata": {
-                    'text': d['text'],
-                    'hierarchy': d['hierarchy']
+                    'chunk_id': d['chunk_id'],
+                    'text': d['chunk_text'],
+                    'title': d['title'],
+                    'link': d['link'],
+                    'year': d['year'],
+                    'topic': d['topic'],
+                    'hierarchy': d['hierarchical_level']
                 }
             })
 
-        # Upsert vectors
-        self.index.upsert(vectors=vectors, namespace=self.namespace)
+        return vectors
+
+
+    def insertDataInBatches(self):
+        CHUNK_SIZE = 50
+        # Load the pre-chunked JSON file (already split by text elsewhere)
+        with open("../Data/ChunkedData/ChunkedData.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        # Helper: Chunk a list into smaller batches of 10
+        def batch(iterable, size):
+            for i in range(0, len(iterable), size):
+                yield iterable[i:i + size]
+
+        # Process data in batches
+        for i, batch_data in enumerate(batch(data, CHUNK_SIZE)):  # Process in batches of 10
+            print(f"Processing batch {i+1} / {len(data) // CHUNK_SIZE + 1}...")
+
+            # Call addData to process the batch
+            vectors = self.dataEmbedding(batch_data)
+
+            if not vectors:
+                print(f"Skipping batch {i+1} due to error in adding data.")
+                continue  # Skip this batch if addData returns no vectors
+
+            # Upsert vectors for the batch
+            try:
+                self.index.upsert(vectors=vectors, namespace=self.namespace)
+                print(f"Successfully upserted batch {i+1}")
+            except Exception as e:
+                print(f"Error upserting batch {i+1}: {e}")
+                continue  # Skip this batch and continue with the next one
+
         print("Data upserted successfully.")
 
 
     # Query the index
-    def query(self, queryText, topK=3, threshold=0.4, maxHierarchyLevel=3):
+    def query(self, queryText, topK=3, threshold=0.6, maxHierarchyLevel=3):
         
         # Embed the query once
         query_embedding = self.pc.inference.embed(
@@ -163,7 +172,7 @@ class PineconeHandler:
         # Build response
         responseBuilder = ""
         for match in finalResults:
-            responseBuilder += f"Paper: {match['id']}\n"
+            responseBuilder += f"Paper: {match['metadata'].get('title')}\n"
             responseBuilder += f"Hierarchy: {match['metadata'].get('hierarchy')}\n"
             responseBuilder += f"Score: {match['score']:.4f}\n"
             responseBuilder += f"Text: {match['metadata'].get('text')}\n\n"
@@ -183,5 +192,6 @@ class PineconeHandler:
 # Debugging only
 if __name__ == "__main__":
     pinecone_handler = PineconeHandler()
+    pinecone_handler.insertDataInBatches()
     # To query:
-    pinecone_handler.query("Quantas horas devo dormir por dia?")
+    # pinecone_handler.query("Quantas horas devo dormir por dia?")
