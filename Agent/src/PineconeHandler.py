@@ -66,7 +66,6 @@ class PineconeHandler:
                 "id": d['chunk_id'],
                 "values": e['values'],
                 "metadata": {
-                    'chunk_id': d['chunk_id'],
                     'text': d['chunk_text'],
                     'title': d['title'],
                     'link': d['link'],
@@ -113,7 +112,7 @@ class PineconeHandler:
 
 
     # Query the index
-    def query(self, queryText, topK=3, threshold=0.6, maxHierarchyLevel=3):
+    def query(self, queryText, topK=5, threshold=0.6, maxHierarchyLevel=3):
         
         # Embed the query once
         query_embedding = self.pc.inference.embed(
@@ -173,13 +172,12 @@ class PineconeHandler:
         responseBuilder = ""
         for match in finalResults:
             responseBuilder += f"Paper: {match['metadata'].get('title')}\n"
-            responseBuilder += f"Hierarchy: {match['metadata'].get('hierarchy')}\n"
-            responseBuilder += f"Score: {match['score']:.4f}\n"
             responseBuilder += f"Text: {match['metadata'].get('text')}\n\n"
 
         # Print final results
         print("\nFinal Top Matches:")
         for match in finalResults:
+            print(f"Id: {match['id']}")
             print(f"Score: {match['score']:.4f}")
             print(f"Hierarchy: {match['metadata']['hierarchy']}")
             print(f"Text: {match['metadata']['text']}")

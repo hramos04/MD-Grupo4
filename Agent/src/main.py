@@ -41,10 +41,15 @@ def main():
         
         
         # Get the LLM response
-        response = llmClient.generateResponse(finalPrompt)
+        try:
+            response = llmClient.generateResponse(finalPrompt)
 
-        print("Resposta do LLM:")
-        print(response)
+            print("Resposta do LLM:")
+            print(response)
+            
+        except Exception as e:
+            print(e)
+            continue
 
 if __name__ == "__main__":
     main()
