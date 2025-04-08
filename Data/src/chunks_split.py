@@ -54,31 +54,37 @@ def split_into_chunks(text, max_length=150, max_tokens=512):
     return final_chunks
 
 
-# Processar JSON
 def process_json(input_data):
     output = []
+    paper_count = 1074  # começa em 1, pode começar em 0 se preferires
+
     for item in input_data:
         try:
             chunks = split_into_chunks(item["abstract"])
         except Exception as e:
-            print(f"Ignorar entrada com erro: {e}")  # Opcional: para log
-            continue  # Ignora a entrada problemática e passa para a próxima
+            print(f"Ignorar entrada com erro: {e}")
+            continue
+
         for idx, chunk in enumerate(chunks):
             output.append({
-                "chunk_id": f"{item['title'][:30]}_{idx}",
+                "chunk_id": f"Paper{paper_count}Chunk{idx}",
                 "chunk_text": chunk,
                 "title": item["title"],
                 "link": item["link"],
                 "year": item["year"],
                 "topic": item["topic"],
-                "hierarchical_level": 2
+                "hierarchical_level": 1
             })
+
+        paper_count += 1  # incrementa o número do paper depois de processar os chunks
+
     return output
+
 
 
 # Exemplo de uso
 if __name__ == "__main__":
-    with open("../JSON/pubmed_abstracts.json", "r") as infile:
+    with open("../JSON/FirstLevel.json", "r") as infile:
         data = json.load(infile)
 
     processed = process_json(data)
