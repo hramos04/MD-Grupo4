@@ -20,9 +20,9 @@ class Agent:
         # Create the final prompt for the LLM
         finalPrompt = (
             f"{self.contextPrompt}\n\n"
-            "### Question:\n"
+            "Question:\n"
             f"{prompt}\n\n"
-            "### Articles context:\n"
+            "Articles context:\n"
             f"{context}"
         )
 
@@ -38,7 +38,7 @@ class Agent:
         try:
             response = self.llmClient.generateResponse(finalPrompt)
 
-            print("Resposta do LLM:")
+            print("Response:")
             print(response)
             
         except Exception as e:
@@ -49,7 +49,7 @@ class Agent:
 
         
 if __name__ == "__main__":
-    agent = Agent()
+    agent = Agent(reasoningModel=False)
     while True:
         # Prompt the user for a question
         prompt = input("\n\nAsk anything (or 'EXIT' to leave): \n>>>")

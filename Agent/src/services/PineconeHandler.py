@@ -68,9 +68,9 @@ class PineconeHandler:
                 "metadata": {
                     'text': d['chunk_text'],
                     'title': d['title'],
-                    'link': d['link'],
-                    'year': d['year'],
-                    'topic': d['topic'],
+                    'link': d['link'] if d['link'] is not None else "",
+                    'year': d['year'] if d['year'] is not None else "",
+                    'topic': d['topic'] if d['topic'] is not None else "",
                     'hierarchy': d['hierarchical_level']
                 }
             })
@@ -81,7 +81,7 @@ class PineconeHandler:
     def insertDataInBatches(self):
         CHUNK_SIZE = 50
         # Load the pre-chunked JSON file (already split by text elsewhere)
-        with open("../Data/ChunkedData/ChunkedData.json", "r", encoding="utf-8") as f:
+        with open("../../Data/ChunkedData/ChunkedData.json", "r", encoding="utf-8") as f:
             data = json.load(f)
 
         # Helper: Chunk a list into smaller batches of 10
@@ -90,7 +90,7 @@ class PineconeHandler:
                 yield iterable[i:i + size]
 
         # Process data in batches
-        for i, batch_data in enumerate(batch(data, CHUNK_SIZE)):  # Process in batches of 10
+        for i, batch_data in enumerate(batch(data, CHUNK_SIZE)):        
             print(f"Processing batch {i+1} / {len(data) // CHUNK_SIZE + 1}...")
 
             # Call addData to process the batch
@@ -167,6 +167,7 @@ class PineconeHandler:
 
         # Sort results by score descending
         finalResults.sort(key=lambda x: x["score"], reverse=True)
+        # finalResults = [x for x in finalResults if x["score"] >= 0.3]
 
         # Build response
         responseBuilder = ""
