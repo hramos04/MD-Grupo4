@@ -90,30 +90,30 @@ class PineconeHandler:
                 yield iterable[i:i + size]
 
         # Process data in batches
-        for i, batch_data in enumerate(batch(data, CHUNK_SIZE)):        
+        for i, batch_data in enumerate(batch(data, CHUNK_SIZE)):     
             print(f"Processing batch {i+1} / {len(data) // CHUNK_SIZE + 1}...")
 
-            # Call addData to process the batch
-            vectors = self.dataEmbedding(batch_data)
-
-            if not vectors:
-                print(f"Skipping batch {i+1} due to error in adding data.")
-                continue  # Skip this batch if addData returns no vectors
-
-            # Upsert vectors for the batch
             try:
+                # Call addData to process the batch
+                vectors = self.dataEmbedding(batch_data)
+
+                if not vectors:
+                    print(f"Skipping batch {i+1} due to error in adding data.")
+                    continue  # Skip this batch if addData returns no vectors
+
+                # Upsert vectors for the batch
                 self.index.upsert(vectors=vectors, namespace=self.namespace)
                 print(f"Successfully upserted batch {i+1}")
+                
             except Exception as e:
                 print(f"Error upserting batch {i+1}: {e}")
-                continue  # Skip this batch and continue with the next one
+                break  
 
         print("Data upserted successfully.")
 
 
     # Query the index
-    def query(self, queryText, topK=5, threshold=0.6, maxHierarchyLevel=3):
-        
+    def query(self, queryText, topK=5, targetThreshold=0.6, minimumThreshold=0.2, maxHierarchyLevel=3):
         # Embed the query once
         query_embedding = self.pc.inference.embed(
             model="llama-text-embed-v2",
@@ -154,12 +154,12 @@ class PineconeHandler:
                     lowest = min(finalResults, key=lambda x: x["score"])
 
                     # Only replace the lowest scoring match if the new match is better and out of threshold scope
-                    if match["score"] > lowest["score"] and lowest["score"] < threshold:
+                    if match["score"] > lowest["score"] and lowest["score"] < targetThreshold:
                         finalResults.remove(lowest)
                         finalResults.append(match)
 
             # Stop if all finalResults are above threshold and we have enough
-            if len(finalResults) == topK and all(r["score"] >= threshold for r in finalResults):
+            if len(finalResults) == topK and all(r["score"] >= targetThreshold for r in finalResults):
                 print("All required results found. Stopping.")
                 break
             else:
@@ -167,12 +167,23 @@ class PineconeHandler:
 
         # Sort results by score descending
         finalResults.sort(key=lambda x: x["score"], reverse=True)
-        # finalResults = [x for x in finalResults if x["score"] >= 0.3]
+        
+        # Filter by minimum accepted threshold values
+        finalResults = [x for x in finalResults if x["score"] >= minimumThreshold]
 
         # Build response
         responseBuilder = ""
         for match in finalResults:
-            responseBuilder += f"Paper: {match['metadata'].get('title')}\n"
+            responseBuilder += f"Title: {match['metadata'].get('title')}\n"
+            
+            year = match['metadata'].get('year')
+            if year != "":
+                responseBuilder += f"Year: {year}\n"
+                
+            link = match['metadata'].get('link')
+            if link != "":
+                responseBuilder += f"Link: {link}\n"
+                
             responseBuilder += f"Text: {match['metadata'].get('text')}\n\n"
 
         # Print final results
@@ -187,3 +198,7 @@ class PineconeHandler:
         return responseBuilder
         
 
+
+if __name__ == "__main__":
+    p = PineconeHandler()
+    p.insertDataInBatches()

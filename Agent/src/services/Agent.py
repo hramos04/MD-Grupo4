@@ -17,6 +17,10 @@ class Agent:
         
         context = self.pineconeHandler.query(prompt)
         
+        if context == "":
+            print("The articles do not provide enough information to answer completely.")
+            return
+        
         # Create the final prompt for the LLM
         finalPrompt = (
             f"{self.contextPrompt}\n\n"
