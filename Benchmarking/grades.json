@@ -203,5 +203,72 @@
                 "Gemini 2.5 pro": 9
             }
         }
+    },
+    "Tocacco": {
+        "Question1": {
+            "question": "How does tobacco smoke damage the lungs over time?",
+            "DefaultModel": {
+                "ChatGPT-4o": 9,
+                "Claude Sonnet 4": 9,
+                "Gemini 2.5 pro": 9
+            },
+            "ReasoningModel": {
+                "ChatGPT-4o": 8,
+                "Claude Sonnet 4": 7,
+                "Gemini 2.5 pro": 8
+            }
+        },
+        "Question2": {
+            "question": "What are the cardiovascular risks of regular nicotine use?",
+            "DefaultModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 10,
+                "Gemini 2.5 pro": 9
+            },
+            "ReasoningModel": {
+                "ChatGPT-4o": 9,
+                "Claude Sonnet 4": 10,
+                "Gemini 2.5 pro": 9
+            }
+        },
+        "Question3": {
+            "question": "Why is tobacco considered a leading preventable cause of death?",
+            "DefaultModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 9,
+                "Gemini 2.5 pro": 9
+            },
+            "ReasoningModel": {
+                "ChatGPT-4o": 9,
+                "Claude Sonnet 4": 9,
+                "Gemini 2.5 pro": 9
+            }
+        },
+        "Question4": {
+            "question": "What are the effects of passive smoking on children?",
+            "DefaultModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 9,
+                "Gemini 2.5 pro": 9
+            },
+            "ReasoningModel": {
+                "ChatGPT-4o": 9,
+                "Claude Sonnet 4": 8,
+                "Gemini 2.5 pro": 8
+            }
+        },
+        "Question5": {
+            "question": "How does quitting smoking improve health within the first year?",
+            "DefaultModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 10,
+                "Gemini 2.5 pro": 9
+            },
+            "ReasoningModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 8,
+                "Gemini 2.5 pro": 9
+            }
+        }
     }
 }
