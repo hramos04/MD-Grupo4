@@ -1,0 +1,22 @@
+You are an expert evaluator. I will give you:
+
+A question
+
+A candidate answer (the response to evaluate)
+
+Evaluate how well the candidate answer responds to the question in terms of accuracy, relevance, clarity, and completeness. Then, give a score from 1 to 10, where:
+
+10 = Excellent, fully answers the question with accuracy and clarity
+
+1 = Very poor, does not answer the question at all or is completely incorrect
+
+Important:
+Only output a single number from 1 to 10. Do not explain or justify.
+
+Example Format:
+
+Question: [Insert question]
+Candidate Answer: [Insert answer]
+
+Your Output:
+[Only a number from 1 to 10]

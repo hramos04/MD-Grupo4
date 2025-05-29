@@ -1,0 +1,44 @@
+{
+    "Alcohol and Drugs": {
+        "Question1": {
+            "question": "What are the long-term health effects of regular alcohol use?",
+            "DefaultModel": {
+                "ChatGPT-4o": 8,
+                "Claude Sonnet 4": 8,
+                "Gemini 2.5 pro": 9
+            },
+            "ReasoningModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 9,
+                "Gemini 2.5 pro": 8
+            }
+        },
+        "Question2": {
+            "question": "How do recreational drugs affect brain and liver function?",
+            "DefaultModel": {
+                "ChatGPT-4o": 9,
+                "Claude Sonnet 4": 7,
+                "Gemini 2.5 pro": 9
+            },
+            "ReasoningModel": {
+                "ChatGPT-4o": 9,
+                "Claude Sonnet 4": 8,
+                "Gemini 2.5 pro": 9
+            }
+        },
+        "Question3": {
+            "question": "What are the risks of mixing alcohol with prescription or illegal drugs?",
+            "DefaultModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 9,
+                "Gemini 2.5 pro": 9
+            },
+            "ReasoningModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 9,
+                "Gemini 2.5 pro": 10
+            }
+        }
+    }
+
+}
