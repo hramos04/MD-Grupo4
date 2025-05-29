@@ -39,6 +39,33 @@
                 "Gemini 2.5 pro": 10
             }
         }
+    },
+    "Hygene": {
+        "Question1": {
+            "question": "How does personal hygiene help prevent infectious diseases?",
+            "DefaultModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 8,
+                "Gemini 2.5 pro": 10
+            },
+            "ReasoningModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 10,
+                "Gemini 2.5 pro": 10
+            }
+        },
+        "Question2": {
+            "question": "What health problems are linked to poor hygiene?",
+            "DefaultModel": {
+                "ChatGPT-4o": 9,
+                "Claude Sonnet 4": 7,
+                "Gemini 2.5 pro": 10
+            },
+            "ReasoningModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 8,
+                "Gemini 2.5 pro": 10
+            }
+        }
     }
-
 }
