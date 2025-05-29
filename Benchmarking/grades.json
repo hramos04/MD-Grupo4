@@ -67,5 +67,46 @@
                 "Gemini 2.5 pro": 10
             }
         }
+    },
+    "Work": {
+        "Question1": {
+            "question": "What are the health consequences of working over 60 hours per week?",
+            "DefaultModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 9,
+                "Gemini 2.5 pro": 9
+            },
+            "ReasoningModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 8,
+                "Gemini 2.5 pro": 8
+            }
+        },
+        "Question2": {
+            "question": "How does night shift work affect sleep and hormone regulation?",
+            "DefaultModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 8,
+                "Gemini 2.5 pro": 9
+            },
+            "ReasoningModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 9,
+                "Gemini 2.5 pro": 9
+            }
+        },
+        "Question3": {
+            "question": "What are effective strategies to reduce health risks in shift workers?",
+            "DefaultModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 7,
+                "Gemini 2.5 pro": 8
+            },
+            "ReasoningModel": {
+                "ChatGPT-4o": 10,
+                "Claude Sonnet 4": 9,
+                "Gemini 2.5 pro": 10
+            }
+        }
     }
 }
